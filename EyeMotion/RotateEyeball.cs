@@ -38,6 +38,16 @@
 
         }
 
+        public RotateEyeball()
+        {
+            LatRectLevel = 0.0f;
+            MedRectLevel = 0.0f;
+            SupRectLevel = 0f;
+            InfRectLevel = 0f;
+            SupOblLevel = 0f;
+            InfOblLevel = 0f;
+
+        }
         private static float Lerp(float value1, float value2, float t)
         {
             return (value1 + (value2 - value1)*t);
