@@ -15,33 +15,33 @@ namespace EyeMotion
         //private Quaternion _basisSupInfRotation = new Quaternion(1, 0, 0, 0);
         //private Quaternion _basisObligueRotation = new Quaternion(0, 0, 1, 0);
 
-        private float latRectLevel { get; set; }
+        private float LatRectLevel { get; set; }
 
-        private float medRectLevel { get; set; }
+        private float MedRectLevel { get; set; }
 
-        private float supRectLevel { get; set; }
+        private float SupRectLevel { get; set; }
 
-        private float infRectLevel { get; set; }
+        private float InfRectLevel { get; set; }
 
-        private float supOblLevel { get; set; }
+        private float SupOblLevel { get; set; }
 
-        private float infOblLevel { get; set; }
+        private float InfOblLevel { get; set; }
 
         public Quaternion UpdateQuaternion()
         {
-            float netLatMedLevel = latRectLevel - medRectLevel;
-            float netSupInfLevel = supRectLevel - infRectLevel;
-            float netObligueLevel = supOblLevel - infOblLevel;
+            float netLatMedLevel = LatRectLevel - MedRectLevel;
+            float netSupInfLevel = SupRectLevel - InfRectLevel;
+            float netObligueLevel = SupOblLevel - InfOblLevel;
 
             float netLatMedDegrees = Lerp(-50, 50, netLatMedLevel);
             float netSupInfDegrees = Lerp(-50, 50, netSupInfLevel);
             float netObliqueDegrees = Lerp(-50, 50, netObligueLevel);
 
-            Quaternion LatMedRotation = new Quaternion(0, 1, 0, netLatMedDegrees);
-            Quaternion SupInfRotation = new Quaternion(1, 0, 0, netSupInfDegrees);
-            Quaternion ObliqueRotation = new Quaternion(0, 0, 1, netObliqueDegrees);
+            Quaternion latMedRotation = new Quaternion(0, 1, 0, netLatMedDegrees);
+            Quaternion supInfRotation = new Quaternion(1, 0, 0, netSupInfDegrees);
+            Quaternion obliqueRotation = new Quaternion(0, 0, 1, netObliqueDegrees);
 
-            return LatMedRotation*SupInfRotation*ObliqueRotation;
+            return latMedRotation*supInfRotation*obliqueRotation;
 
         }
 
