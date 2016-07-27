@@ -34,13 +34,13 @@
             Quaternion supInfRotation = new Quaternion(1, 0, 0, netSupInfDegrees);
             Quaternion obliqueRotation = new Quaternion(0, 0, 1, netObliqueDegrees);
 
-            return latMedRotation*supInfRotation*obliqueRotation;
+            return (latMedRotation*supInfRotation*obliqueRotation);
 
         }
 
         private static float Lerp(float value1, float value2, float t)
         {
-            return value1 + (value2 - value1)*t;
+            return (value1 + (value2 - value1)*t);
         }
     }
 }
